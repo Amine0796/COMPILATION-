@@ -1,0 +1,43 @@
+REAL ROUTINE moyenne ( a , b )
+% un commentaire qui est ingnore , ;
+INTEGER tableau DIMENSION (10 ,11) ;
+REAL m ;
+m = ( a + b ) / 2 ;
+moyenne = m ;
+ENDR
+LOGICAL ROUTINE admis ( m )
+LOGICAL adm ;
+IF ( m  .GE. 10 ) 
+THEN adm = TRUE ;
+ELSE adm = FALSE;
+ENDIF
+admis = adm ;
+ENDR
+INTEGER ROUTINE maximum ( a , b )
+INTEGER max ;
+IF ( b .LT. a ) 
+THEN max = a ;
+ELSE max = b;
+ENDIF
+maximum = max ;
+ENDR 
+PROGRAM
+INTEGER a , b , max ;
+REAL m ;
+LOGICAL adm ;
+REAL m  ;
+CHARACTER amine*30 ;
+WRITE ( " donner deux valeurs : " ) ;
+READ ( a ) ;
+READ ( b ) ;
+max = CALL maximum ( a , b ) ;
+m = CALL moyenne ( a , b ) ;
+adm = CALL admis ( m ) ;
+WRITE ( " le max entre les deux valeurs = " , max ) ;
+WRITE ( " la moyenne des deux valeurs = " , m ) ;
+IF ( adm .EQ. TRUE ) 
+THEN WRITE ( " admis " ) ;
+ELSE WRITE ( " ajourne " ) ;
+ENDIF 
+WRITE(" un message ???? qui n'est pas une erreur @#");
+END
